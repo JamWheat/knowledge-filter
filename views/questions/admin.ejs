@@ -1,10 +1,18 @@
 <%- include('../partials/header') %> 
 
 <h1><%= title %></h1>
+<a href="/filters">View/Edit Filters</a><br>
 <% questions.forEach((q) =>{ %>
-<a href="/questions/<%= q._id %> "><div>
-  <h4><%= q.subject %> </h4>
-</div></a>
+  <!-- make into a table? -->
+  <div>
+    <% if(q.isPublic) { %> 
+      published - 
+    <% } else { %>
+      unpublished - 
+    <% } %>
+    <a href="/questions/<%= q._id %> "><%= q.subject %></a>
+  </div>
+
 <% }) %> 
       
 <%- include('../partials/footer') %> 

@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const questionsCtrl = require('../controllers/questions');
-// const user = require('../models/user');
 
 router.get('/', questionsCtrl.index)
 router.get('/new', isLoggedIn, questionsCtrl.new)
 router.post('/', isLoggedIn, questionsCtrl.create)
 router.get('/admin', isLoggedIn, isAdmin, questionsCtrl.adminIndex)
+// check to see if question is public?
 router.get('/:id', questionsCtrl.show)
 
 function isLoggedIn(req, res, next) {

@@ -1,0 +1,24 @@
+<%- include('../partials/header') %> 
+
+<h1><%= title %></h1>
+<h3>Add Filter:</h3>
+<form action="/filters" method="POST">
+  <label>Name:
+    <input type="text" name="name" required><br>
+  </label>
+  <label>Icon URL:
+    <input type="text" name="icon" required><br>
+  </label>
+  <input type="submit">
+</form><br>
+<% filters.forEach(f =>{ %>
+  <div class="thread-card">
+    <img class="icon" src="<%= f.icon %>">
+    <div class="content">
+      <p><%= f.name %></p>
+    </div> 
+  </div>
+<% }) %> 
+
+      
+<%- include('../partials/footer') %> 
