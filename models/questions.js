@@ -10,8 +10,8 @@ const Schema = mongoose.Schema
 const questionSchema = new Schema({
   subject: {type: String, required: true},
   content: {type: String, required: true},
-  // submitter: {type: Schema.Types.ObjectId, ref: 'User'},
-  // isPublic: {type: Boolean, default: false},
+  asker: {type: Schema.Types.ObjectId, ref: 'User'},
+  isPublic: {type: Boolean, default: false},
   // answers: [answerSchema],
   // likedBy: [{type: Schema.Types.ObjectId, ref: 'User'}],
   // favoritedBy: [{type: Schema.Types.ObjectId, ref: 'User'}]

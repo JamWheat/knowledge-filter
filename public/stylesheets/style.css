@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+.thread-card {
+  display: flex;
+}
+
+.thread-card.content{
+  display: block;
+}
+
+.icon {
+  border-radius: 75px;
+  width: 150px;
+}

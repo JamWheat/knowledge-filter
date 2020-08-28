@@ -1,6 +1,13 @@
 <%- include('../partials/header') %> 
 
 <h1><%= title %></h1>
-<p><%= question.content %> </p>
+<div class="thread-card">
+  <img class="icon" src="<%= asker.icon %>">
+  <div class="content">
+    <p><%= asker.name %></p>
+    <p><%= question.content %> </p>
+  </div> 
+</div>
+
       
 <%- include('../partials/footer') %> 
