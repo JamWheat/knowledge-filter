@@ -4,6 +4,8 @@ const filtersCtrl = require('../controllers/filters')
 
 router.get('/', isLoggedIn, isAdmin, filtersCtrl.index)
 router.post('/', isLoggedIn, isAdmin, filtersCtrl.create)
+router.get('/:id', isLoggedIn, isAdmin, filtersCtrl.show)
+router.put('/:id', isLoggedIn, isAdmin, filtersCtrl.edit)
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

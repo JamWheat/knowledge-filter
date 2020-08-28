@@ -11,7 +11,12 @@ a {
   display: flex;
 }
 
-.thread-card.content{
+.filter-card{
+  display: flex;
+  flex-direction: column;
+}
+
+.content{
   display: block;
 }
 

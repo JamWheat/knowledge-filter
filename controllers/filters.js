@@ -2,7 +2,9 @@ const Filter = require('../models/filter')
 
 module.exports = {
   index,
-  create
+  create,
+  show,
+  edit
 }
 
 function index(req, res){
@@ -16,7 +18,23 @@ function index(req, res){
 }
 
 function create(req, res){
-  Filter.create(req.body).then((filter) =>{
+  Filter.create(req.body).then(() =>{
+    res.redirect('/filters')
+  })
+}
+
+function show(req, res){
+  Filter.findById(req.params.id).then((filter) =>{
+    res.render('filters/show', {
+      title: filter.name,
+      user: req.user,
+      filter
+    })
+  })
+}
+
+function edit(req, res){
+  Filter.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((filter) =>{
     console.log(filter)
     res.redirect('/filters')
   })

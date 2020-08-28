@@ -1,0 +1,16 @@
+<%- include('../partials/header') %> 
+
+<h1><%= title %></h1>
+<img src="<%=filter.icon%>"><br>
+<form action="/filters/<%=filter._id%>?_method=PUT" method="POST">
+  <label>Name:
+    <input type="text" name="name" value="<%=filter.name%>" required><br>
+  </label>
+  <label>Icon URL:
+    <input type="text" name="icon" value="<%=filter.icon%>" required><br>
+  </label>
+  <input type="submit">
+</form><br>
+
+      
+<%- include('../partials/footer') %> 

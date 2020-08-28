@@ -12,11 +12,10 @@
   <input type="submit">
 </form><br>
 <% filters.forEach(f =>{ %>
-  <div class="thread-card">
+  <div class="filter-card">
     <img class="icon" src="<%= f.icon %>">
-    <div class="content">
-      <p><%= f.name %></p>
-    </div> 
+    <p><%= f.name %></p>
+    <a href="/filters/<%=f._id%>">Edit</a>
   </div>
 <% }) %> 
 
