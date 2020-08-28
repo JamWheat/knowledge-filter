@@ -1,7 +1,10 @@
 <%- include('../partials/header') %> 
 
-    <h1><%= title %></h1>
-
-
+<h1><%= title %></h1>
+<% questions.forEach((q) =>{ %>
+<a href="/questions/<%= q._id %> "><div>
+  <h4><%= q.subject %> </h4>
+</div></a>
+<% }) %> 
       
 <%- include('../partials/footer') %> 

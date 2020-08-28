@@ -37,10 +37,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // routes
-// app.use('/', indexRouter);
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
-app.use('/', questionsRouter)
+app.use('/questions', questionsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
