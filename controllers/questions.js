@@ -4,7 +4,8 @@ module.exports = {
   index,
   new: newQuestion,
   create,
-  show
+  show,
+  adminIndex
 }
 
 function index(req, res){
@@ -12,7 +13,7 @@ function index(req, res){
     res.render('questions/index', { 
       title: 'The Knowledge Filter',
       questions,
-      user: req.user
+      user: req.user ? req.user : null
     });
   })
 }
@@ -27,7 +28,6 @@ function newQuestion(req, res){
 function create(req, res){
   //add user id
   Question.create(req.body).then((question) =>{
-    console.log(question)
     res.redirect('/questions')
   })
 }
@@ -36,8 +36,19 @@ function show(req, res){
   Question.findById(req.params.id).then((question)=>{
     res.render('questions/show', {
       title: question.subject,
-      user: req.user,
+      user: req.user ? req.user : null,
       question
     })
   })
+}
+
+function adminIndex(req, res){
+  Question.find({}).then((questions) =>{
+    res.render('questions/admin', { 
+      title: 'Admin View',
+      questions,
+      user: req.user
+    });
+  })
+
 }
