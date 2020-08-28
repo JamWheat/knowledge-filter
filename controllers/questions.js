@@ -6,7 +6,9 @@ module.exports = {
   new: newQuestion,
   create,
   show,
-  adminIndex
+  adminIndex,
+  edit,
+  pub
 }
 
 function index(req, res){
@@ -55,5 +57,27 @@ function adminIndex(req, res){
       user: req.user
     });
   })
+}
 
+function edit(req, res){
+  Question.findById(req.params.id).then((question) =>{
+    User.findById(question.asker).then((asker) =>{
+      res.render('questions/edit', {
+        title: `Edit: ${question.subject}`,
+        user: req.user,
+        question,
+        asker
+      })
+    })
+  })
+}
+
+function pub(req, res){
+  Question.findById(req.params.id).then((question)=>{
+    question.isPublic ? question.isPublic = false : question.isPublic = true
+    console.log(question)
+    question.save().then(() =>{
+      res.redirect(`/questions/${question._id}/edit`)
+    })
+  })
 }

@@ -1,0 +1,18 @@
+<%- include('../partials/header') %> 
+
+<h1><%= title %></h1>
+<a href="/filters">View/Add/Edit Filters</a><br>
+<br>
+<form action="/questions/<%=question._id%>/pub?_method=PUT" method="POST">
+  <input type="submit" value="<%- question.isPublic ? 'Unpublish' : 'Publish' %>">
+</form>
+<div class="thread-card">
+  <img class="icon" src="<%= asker.icon %>">
+  <div class="content">
+    <p><%= asker.name %></p>
+    <p><%= question.content %> </p>
+  </div> 
+</div>
+
+      
+<%- include('../partials/footer') %> 
