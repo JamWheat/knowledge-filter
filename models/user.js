@@ -8,7 +8,7 @@ const userSchema = new Schema(
     icon: String,
     email: String,
     googleId: String,
-    isAdmin: Boolean
+    isAdmin: {type: Boolean, default: false}
   },
   {
     timestamps: true,
