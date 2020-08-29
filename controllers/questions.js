@@ -1,5 +1,6 @@
 const Question = require('../models/question')
 const User = require('../models/user')
+const Filter = require('../models/filter')
 
 module.exports = {
   index,
@@ -39,11 +40,14 @@ function create(req, res){
 function show(req, res){
   Question.findById(req.params.id).then((question)=>{
     User.findById(question.asker).then((asker) =>{
-      res.render('questions/show', {
-        title: question.subject,
-        user: req.user ? req.user : null,
-        question,
-        asker
+      Filter.find({}).then((filters) =>{
+        res.render('questions/show', {
+          title: question.subject,
+          user: req.user ? req.user : null,
+          question,
+          asker,
+          filters
+        })
       })
     })
   })
@@ -62,11 +66,14 @@ function adminIndex(req, res){
 function edit(req, res){
   Question.findById(req.params.id).then((question) =>{
     User.findById(question.asker).then((asker) =>{
-      res.render('questions/edit', {
-        title: `Edit: ${question.subject}`,
-        user: req.user,
-        question,
-        asker
+      Filter.find({}).then((filters)=>{
+        res.render('questions/edit', {
+          title: `Edit: ${question.subject}`,
+          user: req.user,
+          question,
+          asker,
+          filters
+        })
       })
     })
   })

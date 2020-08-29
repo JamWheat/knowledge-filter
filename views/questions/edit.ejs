@@ -13,6 +13,32 @@
     <p><%= question.content %> </p>
   </div> 
 </div>
+<% if (question.answers.length) { %>
+  <% question.answers.forEach(a => { %>
+    <div class="thread-card">
+      <img class="icon" src="<%= a.filter.icon %>">
+      <div class="content">
+        <p><%= a.filter %></p>
+        <p><%= a.content %> </p>
+      </div> 
+    </div>
+  <% }) %>
+<% } %>
+<br>
+<form action="/questions/<%=question._id%>/answers" method="POST">
+  <label>Filter:
+    <select name="filter">
+      <!-- sort filters alphbetically -->
+      <% filters.forEach(f =>{ %>
+        <option value="<%=f._id%>"><%=f.name%></option>
+      <% }) %>
+    </select>
+  </label><br>
+  <label>Content:
+    <input type="text" name="content">
+  </label><br>
+  <input type="submit">
+</form>
 
       
 <%- include('../partials/footer') %> 
