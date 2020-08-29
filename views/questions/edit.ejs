@@ -13,12 +13,16 @@
     <p><%= question.content %> </p>
   </div> 
 </div>
+<% let idx = 1 %>
 <% if (question.answers.length) { %>
-  <% question.answers.forEach(a => { %>
+  <% const answersSorted = question.answers.sort((a, b) => a.index - b.index) %>
+  <% answersSorted.forEach(a => { %>
+    <% idx = a.index %>
     <div class="thread-card">
       <img class="icon" src="<%= a.filter.icon %>">
       <div class="content">
         <form action="/answers/<%=a._id%>?_method=PUT" method="POST">
+          <input type="text" name="index" hidden value="<%= a.index %>">
           <select name="filter">
             <% filters.forEach(f =>{ %>
               <option value="<%=f._id%>" <%- (f.name === a.filter.name) ? 'selected' : '' %> ><%=f.name%></option>
@@ -37,6 +41,8 @@
 <% } %>
 <br>
 <form action="/questions/<%=question._id%>/answers" method="POST">
+  <% idx++ %>
+  <input type="text" name="index" hidden value="<%= idx %>">
   <label>Filter:
     <select name="filter">
       <% filters.forEach(f =>{ %>
