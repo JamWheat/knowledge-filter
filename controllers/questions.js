@@ -63,8 +63,14 @@ function adminIndex(req, res){
   })
 }
 
+// Mongoose does not support calling populate() on nested docs. 
+// Instead of `doc.arr[0].populate("path")`, use `doc.populate("arr.0.path")`
+
 function edit(req, res){
-  Question.findById(req.params.id).then((question) =>{
+  Question.findById(req.params.id)
+    .populate("answers.0.filter")
+    .then((question) =>{
+    console.log(question)
     User.findById(question.asker).then((asker) =>{
       Filter.find({}).then((filters)=>{
         res.render('questions/edit', {
