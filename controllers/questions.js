@@ -68,7 +68,7 @@ function adminIndex(req, res){
 
 function edit(req, res){
   Question.findById(req.params.id)
-    .populate("answers.0.filter")
+    .populate("answers.filter")
     .then((question) =>{
     console.log(question)
     User.findById(question.asker).then((asker) =>{
