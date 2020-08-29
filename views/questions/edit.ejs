@@ -18,8 +18,15 @@
     <div class="thread-card">
       <img class="icon" src="<%= a.filter.icon %>">
       <div class="content">
-        <p><%= a.filter.name %></p>
-        <p><%= a.content %> </p>
+        <form action="answers/<%=a._id%>?_method=PUT" method="POST">
+          <select name="filter">
+            <!-- sort filters alphbetically -->
+            <% filters.forEach(f =>{ %>
+              <option value="<%=f._id%>" <%- (f.name === a.filter.name) ? 'selected' : '' %> ><%=f.name%></option>
+            <% }) %>
+          </select><br>
+          <input type="text" name="content" value="<%=a.content%>">
+        </form>
       </div> 
     </div>
   <% }) %>

@@ -8,7 +8,9 @@ module.exports = {
 }
 
 function index(req, res){
-  Filter.find({}).then((filters) =>{
+  Filter.find({})
+    .sort('name')
+    .then((filters) =>{
     res.render('filters/index', {
       title: 'Filters',
       user: req.user,
