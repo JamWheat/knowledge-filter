@@ -6,9 +6,9 @@
 <form action="/questions/<%=question._id%>/pub?_method=PUT" method="POST">
   <input type="submit" value="<%- question.isPublic ? 'Unpublish' : 'Publish' %>">
 </form>
-<div class="thread-card">
+<div>
   <img class="icon" src="<%= asker.icon %>">
-  <div class="content">
+  <div>
     <p><%= asker.name %></p>
     <p><%= question.content %> </p>
   </div> 
@@ -18,9 +18,9 @@
   <% const answersSorted = question.answers.sort((a, b) => a.index - b.index) %>
   <% answersSorted.forEach(a => { %>
     <% idx = a.index %>
-    <div class="thread-card">
+    <div>
       <img class="icon" src="<%= a.filter.icon %>">
-      <div class="content">
+      <div>
         <form action="/answers/<%=a._id%>?_method=PUT" method="POST">
           <input type="text" name="index" hidden value="<%= a.index %>">
           <select name="filter">

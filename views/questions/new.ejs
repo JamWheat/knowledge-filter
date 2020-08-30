@@ -3,12 +3,12 @@
 <h1><%= title %></h1>
 
 <form action="/questions" method="POST">
-  <label>Subject
-    <input type="text" name="subject" required><br>
-  </label>
-  <label>Question
-    <input type="text" name="content" required><br>
-  </label>
+  Subject:<br>
+  <input type="text" name="subject" required size="25"><br>
+  <br>
+  Question:<br>
+  <textarea rows="3" name="content" required cols="26"></textarea><br>
+  <br>
   <input type="submit">
 
 </form>
