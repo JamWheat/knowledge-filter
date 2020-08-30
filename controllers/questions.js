@@ -9,11 +9,14 @@ module.exports = {
   show,
   adminIndex,
   edit,
-  pub
+  pub,
+  delete: deleteOne
 }
 
 function index(req, res){
-  Question.find({}).then((questions) =>{
+  Question.find({})
+  .sort({_id: -1})
+    .then((questions) =>{
     res.render('questions/index', { 
       title: 'The Knowledge Filter',
       questions,
@@ -53,7 +56,9 @@ function show(req, res){
 }
 
 function adminIndex(req, res){
-  Question.find({}).then((questions) =>{
+  Question.find({})
+    .sort({_id: -1})
+    .then((questions) =>{
     res.render('questions/admin', { 
       title: 'Admin View',
       questions,
@@ -90,4 +95,11 @@ function pub(req, res){
       res.redirect(`/questions/${question._id}/edit`)
     })
   })
+}
+
+function deleteOne(req, res){
+  Question.findByIdAndDelete(req.params.id).then(()=>{
+    res.redirect('/questions/admin')
+  })
+
 }

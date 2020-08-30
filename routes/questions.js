@@ -10,6 +10,7 @@ router.put('/:id/pub', isLoggedIn, isAdmin, questionsCtrl.pub)
 // check to see if question is public?
 router.get('/:id', questionsCtrl.show)
 router.get('/:id/edit', isLoggedIn, isAdmin, questionsCtrl.edit)
+router.delete('/:id', isLoggedIn, isAdmin, questionsCtrl.delete)
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

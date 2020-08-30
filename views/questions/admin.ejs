@@ -2,6 +2,7 @@
 
 <h1><%= title %></h1>
 <a href="/filters">View/Add/Edit Filters</a><br>
+<br>
 <% questions.forEach((q) =>{ %>
   <!-- make into a table? -->
   <div>
@@ -11,6 +12,9 @@
       unpublished - 
     <% } %>
     <a href="/questions/<%= q._id %>/edit"><%= q.subject %></a>
+    <form action="/questions/<%=q._id%>?_method=DELETE" method="POST">
+      <input type="submit" value="Delete">
+    </form>
   </div>
 
 <% }) %> 
