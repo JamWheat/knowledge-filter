@@ -90,7 +90,6 @@ function edit(req, res){
 function pub(req, res){
   Question.findById(req.params.id).then((question)=>{
     question.isPublic ? question.isPublic = false : question.isPublic = true
-    console.log(question)
     question.save().then(() =>{
       res.redirect(`/questions/${question._id}/edit`)
     })
@@ -101,5 +100,4 @@ function deleteOne(req, res){
   Question.findByIdAndDelete(req.params.id).then(()=>{
     res.redirect('/questions/admin')
   })
-
 }

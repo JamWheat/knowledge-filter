@@ -6,7 +6,7 @@
 <form action="/questions/<%=question._id%>/pub?_method=PUT" method="POST">
   <input type="submit" value="<%- question.isPublic ? 'Unpublish' : 'Publish' %>">
 </form>
-<div>
+<div class="edit-card">
   <img class="icon" src="<%= asker.icon %>">
   <div>
     <p><%= asker.name %></p>
@@ -18,7 +18,7 @@
   <% const answersSorted = question.answers.sort((a, b) => a.index - b.index) %>
   <% answersSorted.forEach(a => { %>
     <% idx = a.index %>
-    <div>
+    <div class="edit-card">
       <img class="icon" src="<%= a.filter.icon %>">
       <div>
         <form action="/answers/<%=a._id%>?_method=PUT" method="POST">
@@ -31,6 +31,8 @@
           <input type="text" name="content" value="<%=a.content%>"><br>
           <input type="submit" value="Update">
         </form>
+      </div>
+      <div>
         <form action="/answers/<%=a._id%>?_method=DELETE" method="POST">
           <input type="submit" value="Delete">
         </form><br>

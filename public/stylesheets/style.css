@@ -8,14 +8,31 @@ html {
   box-sizing: inherit;
 }
 
+
 body {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(90deg, #8ca3b3, #CAE9FF 20%, #CAE9FF 80%, #8ca3b3);
   height: 100vh;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #091822;
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+}
+
+input, textarea, select{
+  border-style: solid;
+  border-color: #1B4965;
+  padding: 4px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  border-radius: 4px;
 }
 
 a {
-  color: #3e1d5c;
+  color: #123144;
 }
 
 .filter-card{
@@ -23,56 +40,58 @@ a {
   flex-direction: column;
 }
 
+.edit-card{
+  display: flex;
+}
+
 .list{
   width: 600px;
   border-style: solid;
   border-width: 6px;
-  border-color: #3e1d5c;
+  border-color: #1B4965;
   display: grid;
+  border-radius: 5px;
 }
 
 .list div:nth-child(odd){
-  background-color: #bca8cf;
+  background-color: #BEE9E8;
 }
 .list div:nth-child(even){
-  background-color: #9282a0;
+  background-color: #62B6CB;
 }
 
 .thread-card {
   width: 600px;
   border-style: solid;
   border-width: 6px;
-  border-color: #3e1d5c;
-  border-radius: 10px;
+  border-color: #1B4965;
+  border-radius: 5px;
   display: grid;
   grid-template-columns: 165px auto;
   grid-template-rows: 40px auto;
 }
 
 .icon-area{
-  z-index: -5;
   grid-row: 1 / 3;
-  background-color: #bca8cf;
+  background-color: #62B6CB;
 }
 
 .icon {
   border-style: solid;
   border-width: 6px;
-  border-color: #3e1d5c;
+  border-color: #1B4965;
   margin: 5px;
   border-radius: 100px;
   width: 150px;
 }
 
 .name{
-  z-index: -5;
-  background-color: #cbb3e2;
+  background-color: #BEE9E8;
 }
 
 .content{
-  z-index: -5;
   padding: 7px;
-  background-color: #d7c2eb;
+  background-color: #BEE9E8;
 }
 
 h2{
