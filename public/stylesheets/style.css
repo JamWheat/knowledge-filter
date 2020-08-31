@@ -11,7 +11,7 @@ html {
 
 body {
   font-family: 'Lato', sans-serif;
-  background: linear-gradient(90deg, #8ca3b3, #CAE9FF 20%, #CAE9FF 80%, #8ca3b3);
+  background: #DBCDC6;
   height: 100vh;
   padding: 50px;
   font-size: 18px;
@@ -19,16 +19,34 @@ body {
   flex-direction: column;
   align-items: center;
   color: #091822;
+  --border-color: #1F1A38;
+  --color: #091822;
+  --bg1: #7B506F;
+  --bg2: #DD99BB;
+  --bg3: #DBCDC6;
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
 }
 
+/* Past color scheme:
+background: linear-gradient(90deg, #8ca3b3, #CAE9FF 20%, #CAE9FF 80%, #8ca3b3);
+--border-color: #1B4965;
+  --color: #091822;
+  --bg1: #BEE9E8;
+  --bg2: #62B6CB;
+  --bg3:  */
+
 input, textarea, select{
   border-style: solid;
-  border-color: #1B4965;
+  border-color: var(--border-color);
+  border-width: 3px;
   padding: 4px;
   font-family: 'Lato', sans-serif;
   font-size: 18px;
   border-radius: 4px;
+}
+
+input.button{
+  background-color: var(--bg2);
 }
 
 a {
@@ -48,23 +66,23 @@ a {
   width: 600px;
   border-style: solid;
   border-width: 6px;
-  border-color: #1B4965;
+  border-color: var(--border-color);
   display: grid;
   border-radius: 5px;
 }
 
 .list div:nth-child(odd){
-  background-color: #BEE9E8;
+  background-color: var(--bg2);
 }
 .list div:nth-child(even){
-  background-color: #62B6CB;
+  background-color: var(--bg1);
 }
 
 .thread-card {
   width: 600px;
   border-style: solid;
   border-width: 6px;
-  border-color: #1B4965;
+  border-color: var(--border-color);
   border-radius: 5px;
   display: grid;
   grid-template-columns: 165px auto;
@@ -73,25 +91,25 @@ a {
 
 .icon-area{
   grid-row: 1 / 3;
-  background-color: #62B6CB;
+  background-color: var(--bg1);
 }
 
 .icon {
   border-style: solid;
   border-width: 6px;
-  border-color: #1B4965;
+  border-color: var(--border-color);
   margin: 5px;
   border-radius: 100px;
   width: 150px;
 }
 
 .name{
-  background-color: #BEE9E8;
+  background-color: var(--bg2);
 }
 
 .content{
   padding: 7px;
-  background-color: #BEE9E8;
+  background-color: var(--bg2);
 }
 
 h2{
