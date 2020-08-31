@@ -1,0 +1,17 @@
+<%- include('../partials/header') %> 
+
+<h1><%= title %></h1>
+<form action="/users/<%=user._id%>?_method=PUT" method="POST">
+  New User Name:<br>
+  <input type="text" name="alias" placeholder="Revert to Default" value="<%=user.alias%>"><br>
+  <br>
+  New Icon URL:<br>
+  <input type="text" name="altIcon" placeholder="Revert to Default" value="<%=user.altIcon%>"><br>
+  <br>
+  <p>Leave either field (or both) blank and hit 'Submit Edit' to return to Google defaults.</p>
+  <input type="submit" value="Submit Edit"><br>
+  <a href="/users/<%=user._id%>">Cancel</a>
+</form>
+
+      
+<%- include('../partials/footer') %> 

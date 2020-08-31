@@ -1,9 +1,11 @@
 <%- include('../partials/header') %> 
 
 <h1><%= title %></h1>
-<img class="icon" src="<%=user.icon%>">
-<p>Name: <%=user.name%></p>
+<!-- if altIcon, show altIcon -->
+<img class="icon" src="<%=user.altIcon%>">
 <!-- if Alias, show Alias -->
+<p>Name: <%=user.alias%></p>
+<a href="/users/<%=user._id%>/edit">Edit Profile</a>
 
 <!-- list favorited questions -->
 

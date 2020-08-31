@@ -3,7 +3,9 @@ const User = require('../models/user')
 module.exports = {
   show,
   index,
-  admin
+  admin,
+  edit,
+  update
 }
 
 function show(req, res){
@@ -29,5 +31,24 @@ function admin(req, res){
     user.save().then(() =>{
       res.redirect('/users')
     })
+  })
+}
+
+function edit(req, res){
+  res.render('users/edit', {
+    title: 'Edit Profile',
+    user: req.user
+  })
+}
+
+function update(req, res){
+  if(req.body.alias === ''){
+    req.body.alias = req.user.name
+  }
+  if(req.body.altIcon === ''){
+    req.body.altIcon = req.user.icon
+  }
+  User.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((user) =>{
+    res.redirect(`/users/${req.params.id}`)
   })
 }

@@ -6,7 +6,8 @@
   <% if (u.isAdmin) { %>
     <div class="filter-card">
       <img src="<%=u.icon%>" class="icon">
-      <%= u.name %>
+      Name: <%= u.name %><br>
+      Alias: <%= u.alias %>
       <form action="/users/<%=u._id%>/admin?_method=PUT" method="POST">
         <input type="submit" value="Revoke Admin" class="button">
       </form>
@@ -20,15 +21,13 @@
   <% if (!u.isAdmin) { %>
     <div class="filter-card">
       <img src="<%=u.icon%>" class="icon">
-      <%= u.name %>
+      Name: <%= u.name %><br>
+      Alias: <%= u.alias %>
       <form action="/users/<%=u._id%>/admin?_method=PUT" method="POST">
         <input type="submit" value="Make Admin" class="button">
       </form>
     </div>
   <% } %>
 <% }) %>
-
-
-
       
 <%- include('../partials/footer') %> 
