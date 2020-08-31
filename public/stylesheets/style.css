@@ -11,18 +11,19 @@ html {
 
 body {
   font-family: 'Lato', sans-serif;
-  background: #DBCDC6;
   height: 100vh;
-  padding: 50px;
+  margin: 0;
   font-size: 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas: 
+    "nav"
+    "main";
   color: #091822;
   --border-color: #1F1A38;
   --color: #091822;
   --bg1: #7B506F;
-  --bg2: #DD99BB;
+  --bg2: #e0b8d4;
   --bg3: #DBCDC6;
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
 }
@@ -34,6 +35,27 @@ background: linear-gradient(90deg, #8ca3b3, #CAE9FF 20%, #CAE9FF 80%, #8ca3b3);
   --bg1: #BEE9E8;
   --bg2: #62B6CB;
   --bg3:  */
+
+body > nav {
+  grid-area: nav;
+  background-color: var(--bg1);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 120px;
+}
+
+nav > a {
+  color: var(--bg3)
+}
+
+body > main {
+  background-color: var(--bg3);
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 input, textarea, select{
   border-style: solid;
@@ -50,7 +72,12 @@ input.button{
 }
 
 a {
-  color: #123144;
+  color: var(--border-color);
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
 }
 
 .filter-card{

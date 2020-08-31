@@ -9,15 +9,15 @@
 </head>
 <body>
   <nav>
-    <% if (user && user.isAdmin) { %>
-      <a href="/questions/admin">Admin Home</a> -
-    <% } %> 
-    <a href="/">Home</a> - 
-    <a href="/questions/new">Sumbit a Question</a> - 
+    <a href="/">Home</a>
+    <a href="/questions/new">Sumbit a Question</a>
     <% if (user) { %>
       <a href="/auth/logout">Log Out</a>
     <% } else { %>
       <a href="/auth/google">Login with Google</a>
     <% } %>
+    <% if (user && user.isAdmin) { %>
+      <a href="/questions/admin">Admin Home</a>
+    <% } %> 
   </nav>
   <main>
