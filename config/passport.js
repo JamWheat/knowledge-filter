@@ -14,6 +14,12 @@ passport.use(
         if (err) return done(err);
         if (user) {
           //if statement checking for avatar
+          if (!user.avatar) {
+            user.avatar = profile.photos[0].value;
+            user.save(function (err) {
+              return done(null, user);
+            });
+          }
           return done(null, user);
         } else {
           var newUser = new User({

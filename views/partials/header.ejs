@@ -12,6 +12,7 @@
     <a href="/">Home</a>
     <a href="/questions/new">Sumbit a Question</a>
     <% if (user) { %>
+      <a href="/users/<%=user._id%>">Profile</a>
       <a href="/auth/logout">Log Out</a>
     <% } else { %>
       <a href="/auth/google">Login with Google</a>
