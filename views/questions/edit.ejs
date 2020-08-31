@@ -1,24 +1,27 @@
 <%- include('../partials/header') %> 
 
+<span class=<%- question.isPublic ? "pub" : "unpub"%>>
 <h1><%= title %></h1>
+</span>
 <a href="/filters">View/Add/Edit Filters</a><br>
-<br>
 <form action="/questions/<%=question._id%>/pub?_method=PUT" method="POST">
   <input type="submit" value="<%- question.isPublic ? 'Unpublish' : 'Publish' %>">
 </form>
-<div class="edit-card">
+<br>
+<div class="edit-card <%- question.isPublic ? "pubbed" : "unpubbed"%>">
   <img class="icon" src="<%= asker.icon %>">
   <div>
     <p><%= asker.name %></p>
     <p><%= question.content %> </p>
   </div> 
 </div>
+<br>
 <% let idx = 1 %>
 <% if (question.answers.length) { %>
   <% const answersSorted = question.answers.sort((a, b) => a.index - b.index) %>
   <% answersSorted.forEach(a => { %>
     <% idx = a.index %>
-    <div class="edit-card">
+    <div class="edit-card <%- question.isPublic ? "pubbed" : "unpubbed"%>">
       <img class="icon" src="<%= a.filter.icon %>">
       <div>
         <form action="/answers/<%=a._id%>?_method=PUT" method="POST">
@@ -28,7 +31,7 @@
               <option value="<%=f._id%>" <%- (f.name === a.filter.name) ? 'selected' : '' %> ><%=f.name%></option>
             <% }) %>
           </select><br>
-          <input type="text" name="content" value="<%=a.content%>"><br>
+          <textarea rows="3" name="content" required cols="30" autocomplete="off"><%=a.content%></textarea>
           <input type="submit" value="Update">
         </form>
       </div>
@@ -42,21 +45,28 @@
   <% }) %>
 <% } %>
 <br>
-<form action="/questions/<%=question._id%>/answers" method="POST">
-  <% idx++ %>
-  <input type="text" name="index" hidden value="<%= idx %>">
-  <label>Filter:
-    <select name="filter">
-      <% filters.forEach(f =>{ %>
-        <option value="<%=f._id%>"><%=f.name%></option>
-      <% }) %>
-    </select>
-  </label><br>
-  <label>Content:
-    <input type="text" name="content">
-  </label><br>
-  <input type="submit">
-</form>
-
+Add a new thread item:
+<div class="edit-card <%- question.isPublic ? "pubbed" : "unpubbed"%>">
+  <div>
+    <img class="icon" src="https://i.imgur.com/M94BGzM.jpg">
+  </div>
+  <form action="/questions/<%=question._id%>/answers" method="POST">
+    <% idx++ %>
+    <input type="text" name="index" hidden value="<%= idx %>">
+    <label>Filter:
+      <select name="filter">
+        <% filters.forEach(f =>{ %>
+          <option value="<%=f._id%>"><%=f.name%></option>
+        <% }) %>
+      </select>
+    </label><br>
+    <label>Content:
+      <textarea rows="3" name="content" required cols="30" autocomplete="off"></textarea>
+    </label><br>
+    <input type="submit">
+  </form>
+  <div>
+  </div>
+</div>
       
 <%- include('../partials/footer') %> 

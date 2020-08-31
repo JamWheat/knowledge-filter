@@ -5,20 +5,20 @@
   <a href="/filters">Filter List</a> - 
   <a href="/users">User List</a>
 </div><br>
-<% questions.forEach((q) =>{ %>
-  <!-- make into a table? -->
-  <div>
-    <% if(q.isPublic) { %> 
-      published - 
-    <% } else { %>
-      unpublished - 
-    <% } %>
-    <a href="/questions/<%= q._id %>/edit"><%= q.subject %></a>
-    <form action="/questions/<%=q._id%>?_method=DELETE" method="POST">
-      <input type="submit" value="Delete">
-    </form>
-  </div>
-
-<% }) %> 
+<div class="list">
+  <% questions.forEach((q) =>{ %>
+    <div>
+      <% if(q.isPublic) { %> 
+        <span class="pub">published</span>
+      <% } else { %>
+        <span class="unpub">unpublished </span>
+      <% } %>
+      <a href="/questions/<%= q._id %>/edit"><%= q.subject %></a>
+      <form class="righty" action="/questions/<%=q._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete">
+      </form>
+    </div>
+  <% }) %> 
+</div>
       
 <%- include('../partials/footer') %> 
