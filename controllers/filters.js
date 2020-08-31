@@ -8,7 +8,8 @@ module.exports = {
 }
 
 function index(req, res){
-  Filter.find({})
+  let query = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {}
+  Filter.find(query)
     .sort('name')
     .then((filters) =>{
     res.render('filters/index', {

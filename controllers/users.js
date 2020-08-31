@@ -10,7 +10,7 @@ module.exports = {
 
 function show(req, res){
   res.render('users/show', {
-    title: req.user.name + "'s Profile",
+    title: req.user.alias + "'s Profile",
     user: req.user
   })
 }

@@ -1,6 +1,11 @@
 <%- include('../partials/header') %> 
 
 <h1><%= title %></h1>
+<h3>Seach Filters:</h3>
+<form action="/filters" method="GET">
+  <input type="search" name="name" autocomplete="off">
+  <input type="submit" value="Search">
+</form>
 <h3>Add Filter:</h3>
 <form action="/filters" method="POST">
   <label>Name:
