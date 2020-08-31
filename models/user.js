@@ -6,6 +6,7 @@ const userSchema = new Schema(
     name: String,
     alias: String,
     icon: String,
+    altIcon: String,
     email: String,
     googleId: String,
     isAdmin: {type: Boolean, default: false}

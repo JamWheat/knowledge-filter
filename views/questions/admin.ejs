@@ -1,8 +1,10 @@
 <%- include('../partials/header') %> 
 
 <h1><%= title %></h1>
-<a href="/filters">View/Add/Edit Filters</a><br>
-<br>
+<div>
+  <a href="/filters">Filter List</a> - 
+  <a href="/users">User List</a>
+</div><br>
 <% questions.forEach((q) =>{ %>
   <!-- make into a table? -->
   <div>
