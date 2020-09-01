@@ -176,7 +176,7 @@ a:hover{
   background-color: var(--bg2);
 }
 
-h2{
+h3, h2{
   margin: 5px;
 }
 
@@ -191,4 +191,14 @@ h2{
 
 .button-style:hover{
   text-decoration: none;
+}
+
+.glyph{
+  font-size: 32px;
+}
+
+.subject{
+  width: 600px;
+  display: flex;
+  align-items: center;
 }
