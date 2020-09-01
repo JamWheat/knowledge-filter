@@ -1,0 +1,18 @@
+<%- include('../partials/header') %> 
+
+<h1><%= title %></h1>
+
+<form action="/questions/<%=question._id%>/user?_method=PUT" method="POST">
+  Subject:<br>
+  <input type="text" value="<%=question.subject%>" name="subject" maxlength="42" required size="26" autocomplete="off"><br>
+  <br>
+  Question:<br>
+  <textarea rows="3" name="content" required cols="26" autocomplete="off"><%=question.content%></textarea><br>
+  <br>
+  <input type="submit" class="button">
+
+</form>
+
+
+      
+<%- include('../partials/footer') %> 

@@ -1,6 +1,7 @@
 const Question = require('../models/question')
 const User = require('../models/user')
 const Filter = require('../models/filter')
+const { NotFound } = require('http-errors')
 
 module.exports = {
   index,
@@ -12,7 +13,9 @@ module.exports = {
   pub,
   delete: deleteOne,
   like,
-  favorite
+  favorite,
+  append,
+  userEdit
 }
 
 function index(req, res){
@@ -129,5 +132,21 @@ function favorite(req, res){
     question.save().then(()=>{
       res.redirect(`/questions/${req.params.id}`)
     })
+  })
+}
+
+function append(req, res){
+  Question.findById(req.params.id).then((question)=>{
+    res.render('questions/append', {
+      title: `Edit: ${question.subject}`,
+      user: req.user,
+      question
+    })
+  })
+}
+
+function userEdit(req, res){
+  Question.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((question)=>{
+    res.redirect(`/users/${req.user._id}`)
   })
 }
