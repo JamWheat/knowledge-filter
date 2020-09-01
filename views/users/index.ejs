@@ -20,7 +20,7 @@
 <% users.forEach(u => { %>
   <% if (!u.isAdmin) { %>
     <div class="filter-card">
-      <img src="<%=u.icon%>" class="icon">
+      <img src="<%=u.altIcon%>" class="icon">
       Name: <%= u.name %><br>
       Alias: <%= u.alias %>
       <form action="/users/<%=u._id%>/admin?_method=PUT" method="POST">
