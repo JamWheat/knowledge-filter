@@ -10,12 +10,14 @@ module.exports = {
 }
 
 function show(req, res){
-  Questions.find({favoritedBy: req.user._id}).then((questions)=>{
-    console.log(questions)
-    res.render('users/show', {
-      title: req.user.alias + "'s Profile",
-      user: req.user,
-      questions
+  User.findById(req.params.id).then((thisUser) =>{
+    Questions.find({favoritedBy: req.params.id}).then((questions)=>{
+      res.render('users/show', {
+        title: thisUser.alias + "'s Profile",
+        user: req.user,
+        questions,
+        thisUser
+      })
     })
   })
 }
