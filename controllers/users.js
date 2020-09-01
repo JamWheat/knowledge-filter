@@ -12,11 +12,15 @@ module.exports = {
 function show(req, res){
   User.findById(req.params.id).then((thisUser) =>{
     Questions.find({favoritedBy: req.params.id}).then((questions)=>{
-      res.render('users/show', {
-        title: thisUser.alias + "'s Profile",
-        user: req.user,
-        questions,
-        thisUser
+      Questions.find({asker: req.user._id, isLocked: false}).then((pending)=>{
+        console.log(pending)
+        res.render('users/show', {
+          title: thisUser.alias + "'s Profile",
+          user: req.user,
+          questions,
+          thisUser,
+          pending
+        })
       })
     })
   })

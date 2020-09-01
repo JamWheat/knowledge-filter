@@ -15,6 +15,7 @@ const questionSchema = new Schema({
   content: {type: String, required: true},
   asker: {type: Schema.Types.ObjectId, ref: 'User'},
   isPublic: {type: Boolean, default: false},
+  isLocked: {type: Boolean, default: false},
   answers: [answerSchema],
   likedBy: [{type: Schema.Types.ObjectId, ref: 'User'}],
   favoritedBy: [{type: Schema.Types.ObjectId, ref: 'User'}]

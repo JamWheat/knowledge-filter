@@ -3,14 +3,26 @@
 <h1><%= title %></h1>
 <img class="icon" src="<%=thisUser.altIcon%>">
 <p>Name: <%=thisUser.alias%></p>
-<% if (thisUser._id === user._id) { %>
-  <a class="button-style" href="/users/<%=thisUser._id%>/edit">Edit Profile</a>
+<% if (thisUser.id === user.id) { %>
+  <a class="button-style" href="/users/<%=thisUser._id%>/edit">Edit Profile</a><br>
+  <h3>Unanswer Questions:</h3>
+  <p>You can edit or even delete your questions, if they have not already been answered.</p>
+  <% if (!pending.length) { %>
+    But you do not have any pending questions yet. Go ahead and ask some, that is what the Knowledge Filter is here for!<br>
+  <% } else { %>
+    <div class="list">
+      <% pending.forEach(p => { %>
+        <div>
+          <h3><%=p.subject%></h3>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
 <% } %>
 <br>
 <h3>Favorite Questions:</h3>
-<!-- check if thisUser matches user, change wording if needed -->
 <% if (!questions.length) { %>
-  <% if (thisUser._id === user._id) { %>
+  <% if (thisUser.id === user.id) { %>
     <p>You have not favorited any Questions yet. Surely <i>something</i> has tickled your funny bone?</p>
   <% } else { %>
     <p><%=thisUser.alias%> has not liked any Questions yet.</p>

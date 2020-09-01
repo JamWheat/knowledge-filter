@@ -9,6 +9,7 @@ module.exports = {
 function create(req, res){
   req.body.author = req.user.name
   Question.findById(req.params.id).then((question)=>{
+    question.isLocked = true
     question.answers.push(req.body)
     question.save().then(()=>{
       res.redirect(`/questions/${req.params.id}/edit`)
