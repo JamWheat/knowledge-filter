@@ -21,12 +21,21 @@ body {
     "main";
   color: #091822;
   --border-color: #1F1A38;
+  --light-color: #f0eae7;
   --color: #091822;
   --bg1: #7B506F;
-  --bg2: #e0b8d4;
+  --bg2: #c49eb8;
   --bg3: #DBCDC6;
+  --bg4: #e0c2d8;
+  --button-hover: #a57597;
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
 }
+
+/* --bg1: #7B506F;
+--bg2: #e0b8d4;
+--bg3: #DBCDC6;
+--bg4: #f0dfeb; */
+
 
 /* Past color scheme:
 background: linear-gradient(90deg, #8ca3b3, #CAE9FF 20%, #CAE9FF 80%, #8ca3b3);
@@ -46,10 +55,11 @@ body > nav {
 }
 
 nav > a {
-  color: var(--bg3)
+  color: var(--light-color)
 }
 
 body > main {
+  background: linear-gradient(90deg, #bdb0aa, #DBCDC6 20%, #DBCDC6 80%, #bdb0aa);
   background-color: var(--bg3);
   grid-area: main;
   display: flex;
@@ -69,10 +79,16 @@ input, textarea, select{
 }
 
 input.button{
-  background-color: var(--bg2);
+  border-style: none;
+  font-weight: bold;
+  padding: 8px;
+  color: var(--light-color);
+  background-color: var(--bg1);
 }
 
 input.button:hover{
+  background-color: var(--button-hover);
+  color: var(--bg3);
   cursor: pointer;
 }
 
@@ -98,6 +114,7 @@ a:hover{
   border-color: var(--border-color);
   display: grid;
   border-radius: 5px;
+  filter: drop-shadow(0px 4px 5px #918d9c);
 }
 
 .list div{
@@ -123,7 +140,7 @@ a:hover{
   background-color: var(--bg2);
 }
 .list div:nth-child(even){
-  background-color: var(--bg1);
+  background-color: var(--bg4);
 }
 
 .thread-card {
@@ -135,6 +152,7 @@ a:hover{
   display: grid;
   grid-template-columns: 165px auto;
   grid-template-rows: 40px auto;
+  filter: drop-shadow(0px 4px 5px #918d9c);
 }
 
 .edit-card{
@@ -173,21 +191,27 @@ a:hover{
 }
 
 .content{
-  padding: 7px;
-  background-color: var(--bg2);
+  padding: 2px;
+  background-color: var(--bg4);
 }
 
-h3, h2{
+h3, h2, p{
   margin: 5px;
 }
 
 .button-style{
-  border-style: solid;
-  border-color: var(--border-color);
-  border-width: 3px;
-  padding: 4px;
   border-radius: 4px;
-  background-color: var(--bg2);
+  border-style: none;
+  font-weight: bold;
+  padding: 8px;
+  color: var(--light-color);
+  background-color: var(--bg1);
+}
+
+.button-style:hover{
+  background-color: var(--button-hover);
+  color: var(--bg3);
+  cursor: pointer;
 }
 
 .button-style:hover{
