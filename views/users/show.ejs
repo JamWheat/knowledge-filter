@@ -5,8 +5,8 @@
 <p>Name: <%=thisUser.alias%></p>
 <% if (thisUser.id === user.id) { %>
   <a class="button-style" href="/users/<%=thisUser._id%>/edit">Edit Profile</a><br>
-  <h3>Unanswer Questions:</h3>
-  <p>Click on a pending qustion to edit (or even delete) it.</p>
+  <h3>Unanswered Questions:</h3>
+  <p>Click on a pending question to edit (or even delete) it.</p>
   <% if (!pending.length) { %>
     You don't have any pending questions at the moment. Ask one, why not!<br>
   <% } else { %>
