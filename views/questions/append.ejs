@@ -2,16 +2,20 @@
 
 <h1><%= title %></h1>
 
-<form action="/questions/<%=question._id%>/user?_method=PUT" method="POST">
+<form action="/questions/<%=question._id%>/userup?_method=PUT" method="POST">
   Subject:<br>
   <input type="text" value="<%=question.subject%>" name="subject" maxlength="42" required size="26" autocomplete="off"><br>
   <br>
   Question:<br>
   <textarea rows="3" name="content" required cols="26" autocomplete="off"><%=question.content%></textarea><br>
   <br>
-  <input type="submit" class="button">
-
+  <input type="submit" class="button" value="Update Question">
+</form><br>
+<br>
+<form action="/questions/<%=question._id%>/userdel?_method=DELETE" method="POST">
+  <input type="submit" value="Delete Question" class="button">
 </form>
+(Careful, cannot be undone!)
 
 
       

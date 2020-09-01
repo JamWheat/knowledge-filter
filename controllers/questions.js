@@ -15,7 +15,8 @@ module.exports = {
   like,
   favorite,
   append,
-  userEdit
+  userUpdate,
+  userDelete
 }
 
 function index(req, res){
@@ -145,8 +146,14 @@ function append(req, res){
   })
 }
 
-function userEdit(req, res){
+function userUpdate(req, res){
   Question.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((question)=>{
+    res.redirect(`/users/${req.user._id}`)
+  })
+}
+
+function userDelete(req, res){
+  Question.findByIdAndDelete(req.params.id).then(()=>{
     res.redirect(`/users/${req.user._id}`)
   })
 }
