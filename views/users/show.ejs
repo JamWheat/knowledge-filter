@@ -1,13 +1,21 @@
 <%- include('../partials/header') %> 
 
 <h1><%= title %></h1>
-<!-- if altIcon, show altIcon -->
 <img class="icon" src="<%=user.altIcon%>">
-<!-- if Alias, show Alias -->
 <p>Name: <%=user.alias%></p>
 <a class="button-style" href="/users/<%=user._id%>/edit">Edit Profile</a>
-
+<br>
 <!-- list favorited questions -->
+<h3>Favorite Questions:</h3>
+<% if (!questions.length) { %>
+  <p>You have not favorited any Questions yet. Surely <i>something</i> has tickled your funny bone?</p>
+<% } else {%>
+<div class=list>
+  <% questions.forEach(q => { %>
+    <div><h3><a href="/questions/<%=q._id%>"><%=q.subject%></a></h3></div>
+  <% }) %>
+</div>
+<% } %>
 
 
       

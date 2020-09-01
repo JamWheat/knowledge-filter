@@ -1,4 +1,5 @@
 const User = require('../models/user')
+const Questions = require('../models/question')
 
 module.exports = {
   show,
@@ -9,9 +10,13 @@ module.exports = {
 }
 
 function show(req, res){
-  res.render('users/show', {
-    title: req.user.alias + "'s Profile",
-    user: req.user
+  Questions.find({favoritedBy: req.user._id}).then((questions)=>{
+    console.log(questions)
+    res.render('users/show', {
+      title: req.user.alias + "'s Profile",
+      user: req.user,
+      questions
+    })
   })
 }
 

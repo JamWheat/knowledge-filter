@@ -8,6 +8,7 @@
       <a href="/questions/<%= q._id %> ">
         <h3><%= q.subject %> </h3>
       </a>
+      <span class="righty"><h3><i class="fas fa-thumbs-up"></i>: <%=q.likedBy.length%></h3></span>
     </div>
   <% } %>
 <% }) %> 
