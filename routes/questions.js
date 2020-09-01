@@ -12,7 +12,7 @@ router.get('/:id', questionsCtrl.show)
 router.get('/:id/edit', isLoggedIn, isAdmin, questionsCtrl.edit)
 router.delete('/:id', isLoggedIn, isAdmin, questionsCtrl.delete)
 router.get('/:id/like', isLoggedIn, questionsCtrl.like)
-router.get('/:id/unlike', isLoggedIn, questionsCtrl.unlike)
+router.get('/:id/favorite', isLoggedIn, questionsCtrl.favorite)
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

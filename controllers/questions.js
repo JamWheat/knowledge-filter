@@ -12,7 +12,7 @@ module.exports = {
   pub,
   delete: deleteOne,
   like,
-  unlike
+  favorite
 }
 
 function index(req, res){
@@ -106,17 +106,26 @@ function deleteOne(req, res){
 
 function like(req, res){
   Question.findById(req.params.id).then((question)=>{
-    question.likedBy.push(req.user._id)
+    if (!question.likedBy.includes(req.user._id)){
+      question.likedBy.push(req.user._id)
+    } else {
+      let idx = question.likedBy.indexOf(req.user._id)
+      question.likedBy.splice(idx, 1)
+    }
     question.save().then(()=>{
       res.redirect(`/questions/${req.params.id}`)
     })
   })
 }
 
-function unlike(req, res){
+function favorite(req, res){
   Question.findById(req.params.id).then((question)=>{
-    let idx = question.likedBy.indexOf(req.user._id)
-    question.likedBy.splice(idx, 1)
+    if (!question.favoritedBy.includes(req.user._id)){
+      question.favoritedBy.push(req.user._id)
+    } else {
+      let idx = question.favoritedBy.indexOf(req.user._id)
+      question.favoritedBy.splice(idx, 1)
+    }
     question.save().then(()=>{
       res.redirect(`/questions/${req.params.id}`)
     })

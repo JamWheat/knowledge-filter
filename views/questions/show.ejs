@@ -4,13 +4,10 @@
   <h1><%= title %></h1>
   <% if (user) { %>
     <span class="righty">
-      <% if(question.likedBy.includes(user._id)) { %>
-        <a href="/questions/<%=question._id%>/unlike"><i class="fas fa-thumbs-up glyph righty"></i></a>
-      <% } else { %>
-        <a href="/questions/<%=question._id%>/like"><i class="far fa-thumbs-up glyph"></i></a>
-      <% } %>
-      <i class="far fa-heart glyph"></i>
-      <!-- <i class="fas fa-heart glyph righty"></i> -->
+      <a href="/questions/<%=question._id%>/like"><i class="<%-question.likedBy.includes(user._id) ? 'fas' : 'far'%> fa-thumbs-up glyph"></i></a>
+      <a href="/questions/<%=question._id%>/favorite"><i class="<%-question.favoritedBy.includes(user._id) ? 'fas' : 'far'%> fa-heart glyph"></i></a>
+      <!-- <i class="far fa-heart glyph"></i> -->
+      <!-- <i class="fas fa-heart glyph"></i> -->
     </span>
   <% } %>
 </div>
