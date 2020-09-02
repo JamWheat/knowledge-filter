@@ -6,6 +6,7 @@ router.get('/', questionsCtrl.index)
 router.get('/new', isLoggedIn, questionsCtrl.new)
 router.post('/', isLoggedIn, questionsCtrl.create)
 router.get('/admin', isLoggedIn, isAdmin, questionsCtrl.adminIndex)
+router.get('/about', questionsCtrl.about)
 router.put('/:id/pub', isLoggedIn, isAdmin, questionsCtrl.pub)
 // check to see if question is public?
 router.get('/:id', questionsCtrl.show)

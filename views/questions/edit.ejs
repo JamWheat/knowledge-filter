@@ -11,7 +11,7 @@
 <div class="edit-card <%- question.isPublic ? "pubbed" : "unpubbed"%>">
   <img class="icon" src="<%= asker.altIcon %>">
   <div>
-    <p><%= asker.name %></p>
+    <p><%= asker.alias %> (<%= asker.name%>)</p>
     <p><%= question.content %> </p>
   </div> 
 </div>

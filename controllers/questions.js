@@ -16,7 +16,8 @@ module.exports = {
   favorite,
   append,
   userUpdate,
-  userDelete
+  userDelete,
+  about
 }
 
 function index(req, res){
@@ -155,5 +156,12 @@ function userUpdate(req, res){
 function userDelete(req, res){
   Question.findByIdAndDelete(req.params.id).then(()=>{
     res.redirect(`/users/${req.user._id}`)
+  })
+}
+
+function about(req, res){
+  res.render('questions/about', {
+    title: 'About the Knoledge Filter',
+    user: req.user ? req.user : null
   })
 }
