@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const questionsCtrl = require('../controllers/questions');
 
+router.get('/', function(req, res, next) {
+  res.redirect('/questions/page/1')
+});
 router.get('/page/:page', questionsCtrl.index)
 router.get('/new', isLoggedIn, questionsCtrl.new)
 router.post('/', isLoggedIn, questionsCtrl.create)

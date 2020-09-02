@@ -29,7 +29,6 @@ function index(req, res){
       .skip((resPerPage * page) - resPerPage)
       .limit(resPerPage)
       .then((questions) =>{
-        console.log(Math.ceil(totalQs / resPerPage))
         res.render('questions/index', { 
         title: 'The Knowledge Filter',
         questions,
@@ -51,7 +50,6 @@ function newQuestion(req, res){
 function create(req, res){
   req.body.asker = req.user._id
   Question.create(req.body).then((question) =>{
-    console.log(question)
     res.redirect('/questions/page/1')
   })
 }
@@ -121,7 +119,6 @@ function pub(req, res){
 }
 
 function deleteOne(req, res){
-  console.log(req.body.page)
   Question.findByIdAndDelete(req.params.id).then(()=>{
     res.redirect(`/questions/admin/${req.body.page}`)
   })
