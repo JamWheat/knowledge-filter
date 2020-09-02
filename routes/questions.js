@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const questionsCtrl = require('../controllers/questions');
 
-router.get('/', questionsCtrl.index)
+router.get('/page/:page', questionsCtrl.index)
 router.get('/new', isLoggedIn, questionsCtrl.new)
 router.post('/', isLoggedIn, questionsCtrl.create)
 router.get('/admin/:page', isLoggedIn, isAdmin, questionsCtrl.adminIndex)

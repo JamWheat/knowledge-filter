@@ -3,15 +3,24 @@
 <h1><%= title %></h1>
 <div class="list">
 <% questions.forEach((q) =>{ %>
-  <% if(q.isPublic) { %> 
-    <div>
-      <a href="/questions/<%= q._id %> ">
-        <h3><%= q.subject %> </h3>
-      </a>
-      <span class="righty"><h3><i class="fas fa-thumbs-up"></i>: <%=q.likedBy.length%></h3></span>
-    </div>
-  <% } %>
+  <div>
+    <a href="/questions/<%= q._id %> ">
+      <h3><%= q.subject %> </h3>
+    </a>
+    <span class="righty"><h3><i class="fas fa-thumbs-up"></i>: <%=q.likedBy.length%></h3></span>
+  </div>
 <% }) %> 
+</div>
+<br>
+<div>
+  <% if (currentPage === 1 && pages > 1) { %>
+    <a href="/questions/page/<%= currentPage + 1 %>">Page <%= currentPage + 1 %></a>
+  <% } else if (currentPage < pages ){ %>
+    <a href="/questions/page/<%= currentPage - 1 %>">Page <%= currentPage - 1 %></a>
+    <a href="/questions/page/<%= currentPage + 1 %>">Page <%= currentPage + 1 %></a>
+  <% } else if (currentPage === pages){ %>
+    <a href="/questions/page/<%= currentPage - 1 %>">Page <%= currentPage - 1 %></a>
+  <% } %>
 </div>
       
 <%- include('../partials/footer') %> 

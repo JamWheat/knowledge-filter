@@ -21,14 +21,23 @@ module.exports = {
 }
 
 function index(req, res){
-  Question.find({})
-  .sort({_id: -1})
-    .then((questions) =>{
-    res.render('questions/index', { 
-      title: 'The Knowledge Filter',
-      questions,
-      user: req.user ? req.user : null
-    });
+  const resPerPage = 15
+  const page = parseInt(req.params.page)
+  Question.countDocuments({isPublic: true}).then((totalQs)=>{
+    Question.find({isPublic: true})
+      .sort({_id: -1})
+      .skip((resPerPage * page) - resPerPage)
+      .limit(resPerPage)
+      .then((questions) =>{
+        console.log(Math.ceil(totalQs / resPerPage))
+        res.render('questions/index', { 
+        title: 'The Knowledge Filter',
+        questions,
+        user: req.user ? req.user : null,
+        currentPage: page,
+        pages: Math.ceil(totalQs / resPerPage)
+      });
+    })
   })
 }
 
@@ -43,7 +52,7 @@ function create(req, res){
   req.body.asker = req.user._id
   Question.create(req.body).then((question) =>{
     console.log(question)
-    res.redirect('/questions')
+    res.redirect('/questions/page/1')
   })
 }
 
@@ -65,7 +74,6 @@ function show(req, res){
 function adminIndex(req, res){
   const resPerPage = 15
   const page = parseInt(req.params.page)
-  console.log(typeof(page))
   Question.countDocuments({}).then((totalQs)=>{
     Question.find({})
       .sort({_id: -1})
