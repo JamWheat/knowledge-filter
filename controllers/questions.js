@@ -63,14 +63,23 @@ function show(req, res){
 }
 
 function adminIndex(req, res){
-  Question.find({})
-    .sort({_id: -1})
-    .then((questions) =>{
-    res.render('questions/admin', { 
-      title: 'Admin View',
-      questions,
-      user: req.user
-    });
+  const resPerPage = 15
+  const page = parseInt(req.params.page)
+  console.log(typeof(page))
+  Question.countDocuments({}).then((totalQs)=>{
+    Question.find({})
+      .sort({_id: -1})
+      .skip((resPerPage * page) - resPerPage)
+      .limit(resPerPage)
+      .then((questions) =>{
+      res.render('questions/admin', { 
+        title: 'Admin View',
+        questions,
+        user: req.user,
+        currentPage: page,
+        pages: Math.ceil(totalQs / resPerPage)
+      });
+    })
   })
 }
 

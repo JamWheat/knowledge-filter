@@ -20,5 +20,17 @@
     </div>
   <% }) %> 
 </div>
+<br>
+<div>
+  <% if (currentPage === 1 && pages > 1) { %>
+    <a href="/questions/admin/<%= currentPage + 1 %>">Page <%= currentPage + 1 %></a>
+  <% } else if (currentPage < pages ){ %>
+    <a href="/questions/admin/<%= currentPage - 1 %>">Page <%= currentPage - 1 %></a>
+    <a href="/questions/admin/<%= currentPage + 1 %>">Page <%= currentPage + 1 %></a>
+  <% } else if (currentPage === pages){ %>
+    <a href="/questions/admin/<%= currentPage - 1 %>">Page <%= currentPage - 1 %></a>
+  <% } %>
+</div>
+
       
 <%- include('../partials/footer') %> 
