@@ -105,8 +105,19 @@ a:hover{
   text-decoration: underline;
 }
 
-.filter-card{
+.filter-box{
+  justify-content: center;
+  padding: 20px;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.filter-card{
+  margin: 10px;
+  width: 200px;
+  display: flex;
+  align-items: center;
   flex-direction: column;
 }
 

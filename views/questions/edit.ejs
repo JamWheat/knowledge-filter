@@ -3,7 +3,7 @@
 <span class=<%- question.isPublic ? "pub" : "unpub"%>>
 <h1><%= title %></h1>
 </span>
-<a href="/filters">View/Add/Edit Filters</a><br>
+<a href="/filters">View/Add/Edit Experts</a><br>
 <form action="/questions/<%=question._id%>/pub?_method=PUT" method="POST">
   <input type="submit" value="<%- question.isPublic ? 'Unpublish' : 'Publish' %>">
 </form>
@@ -53,7 +53,7 @@ Add a new thread item:
   <form action="/questions/<%=question._id%>/answers" method="POST">
     <% idx++ %>
     <input type="text" name="index" hidden value="<%= idx %>">
-    <label>Filter:
+    <label>Expert:
       <select name="filter">
         <% filters.forEach(f =>{ %>
           <option value="<%=f._id%>"><%=f.name%></option>

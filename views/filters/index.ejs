@@ -1,31 +1,33 @@
 <%- include('../partials/header') %> 
 
 <h1><%= title %></h1>
-<h3>Seach Filters:</h3>
+<h3>Seach Experts:</h3>
 <form action="/filters" method="GET">
   <input type="search" name="name" autocomplete="off">
   <input type="submit" value="Search">
 </form>
-<h3>Add Filter:</h3>
+<h3>Add Expert:</h3>
 <form action="/filters" method="POST">
   <label>Name:
-    <input type="text" name="name" required><br>
+    <input type="text" name="name" required autocomplete="off"><br>
   </label>
   <label>Icon URL:
-    <input type="text" name="icon" required><br>
+    <input type="text" name="icon" required autocomplete="off"><br>
   </label>
   <label>Attribution URL:
-    <input type="text" name="attribution"><br>
+    <input type="text" name="attribution" autocomplete="off"><br>
   </label>
   <input type="submit">
 </form><br>
-<% filters.forEach(f =>{ %>
-  <div class="filter-card">
-    <img class="icon" src="<%= f.icon %>">
-    <p><%= f.name %></p>
-    <a href="/filters/<%=f._id%>">Edit</a>
-  </div>
-<% }) %> 
+<div class="filter-box">
+  <% filters.forEach(f =>{ %>
+    <div class="filter-card">
+      <img class="icon" src="<%= f.icon %>">
+      <p><%= f.name %></p>
+      <a href="/filters/<%=f._id%>">Edit</a>
+    </div>
+  <% }) %> 
+</div>
 
       
 <%- include('../partials/footer') %> 

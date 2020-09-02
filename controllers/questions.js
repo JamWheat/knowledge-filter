@@ -113,8 +113,9 @@ function pub(req, res){
 }
 
 function deleteOne(req, res){
+  console.log(req.body.page)
   Question.findByIdAndDelete(req.params.id).then(()=>{
-    res.redirect('/questions/admin')
+    res.redirect(`/questions/admin/${req.body.page}`)
   })
 }
 

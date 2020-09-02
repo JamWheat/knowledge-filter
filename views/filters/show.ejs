@@ -4,13 +4,13 @@
 <img src="<%=filter.icon%>"><br>
 <form action="/filters/<%=filter._id%>?_method=PUT" method="POST">
   <label>Name:
-    <input type="text" name="name" value="<%=filter.name%>" required><br>
+    <input type="text" name="name" value="<%=filter.name%>" autocomplete="off" required><br>
   </label>
   <label>Icon URL:
-    <input type="text" name="icon" value="<%=filter.icon%>" required><br>
+    <input type="text" name="icon" value="<%=filter.icon%>" autocomplete="off" required><br>
   </label>
   <label>Attribution URL:
-    <input type="text" name="attribution" value="<%=filter.attribution%>"><br>
+    <input type="text" name="attribution" value="<%=filter.attribution%>" autocomplete="off"><br>
   </label>
   <input type="submit">
 </form><br>

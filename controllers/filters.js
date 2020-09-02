@@ -13,7 +13,7 @@ function index(req, res){
     .sort('name')
     .then((filters) =>{
     res.render('filters/index', {
-      title: 'Filters',
+      title: 'Experts',
       user: req.user,
       filters
     })
