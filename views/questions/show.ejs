@@ -26,7 +26,11 @@
   <% answersSorted.forEach(a => { %>
     <div class="thread-card">
       <div class="icon-area">
-        <img class="icon" src="<%= a.filter.icon %>">
+        <% if (a.filter.attribution === '') { %>
+          <img class="icon" src="<%= a.filter.icon %>">
+        <% } else {%>
+          <a href="<%=a.filter.attribution%>"><img class="icon" src="<%= a.filter.icon %>"></a>
+        <% } %>
       </div>
       <div class="name">
         <h2><%= a.filter.name %></h2>

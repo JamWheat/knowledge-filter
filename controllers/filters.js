@@ -38,7 +38,6 @@ function show(req, res){
 
 function edit(req, res){
   Filter.findByIdAndUpdate(req.params.id, req.body, {new: true}).then((filter) =>{
-    console.log(filter)
     res.redirect('/filters')
   })
 }
