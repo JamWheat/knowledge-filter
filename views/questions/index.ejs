@@ -12,15 +12,19 @@
 <% }) %> 
 </div>
 <br>
+<br>
 <div>
   <% if (currentPage === 1 && pages > 1) { %>
-    <a href="/questions/page/<%= currentPage + 1 %>"><h1><i class="fas fa-arrow-circle-right"></i></h1></a>
+    <h2><a class="button-style" href="/questions/page/<%= currentPage + 1 %>">Next Page</a> </h2>
   <% } else if (currentPage < pages ){ %>
-    <a href="/questions/page/<%= currentPage - 1 %>"><h1><i class="fas fa-arrow-circle-left"></i></h1></a>
-    <a href="/questions/page/<%= currentPage + 1 %>"><h1><i class="fas fa-arrow-circle-right"></i></h1></a>
+    <h2><a class="button-style" href="/questions/page/<%= currentPage - 1 %>">Prev Page</a> </h2>
+    <h2><a class="button-style" href="/questions/page/<%= currentPage + 1 %>">Next Page</a> </h2>
   <% } else if (currentPage === pages){ %>
-    <a href="/questions/page/<%= currentPage - 1 %>"><h1><i class="fas fa-arrow-circle-left"></i></h1></a>
+    <h2><a class="button-style" href="/questions/page/<%= currentPage - 1 %>">Prev Page</a> </h2>
   <% } %>
 </div>
+
+<!-- <i class="fas fa-arrow-circle-left"></i> -->
+<!-- <i class="fas fa-arrow-circle-right"></i> -->
       
 <%- include('../partials/footer') %> 
