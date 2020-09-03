@@ -1,7 +1,9 @@
 <%- include('../partials/header') %> 
 
+<!-- check here to see if a post is still public? -->
+
 <div class="subject">
-  <h1><%= title %></h1>
+  <h1 class="title"><%= title %></h1>
   <% if (user) { %>
     <span class="righty">
       <a href="/questions/<%=question._id%>/like"><i class="<%-question.likedBy.includes(user._id) ? 'fas' : 'far'%> fa-thumbs-up glyph"></i></a>

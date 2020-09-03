@@ -1,6 +1,6 @@
 <%- include('../partials/header') %> 
 
-<h1><%= title %></h1>
+<h1 class="title"><%= title %></h1>
 <form action="/users/<%=user._id%>?_method=PUT" method="POST">
   New User Name:<br>
   <input type="text" name="alias" placeholder="Revert to Default" value="<%=user.alias%>"><br>

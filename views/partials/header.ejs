@@ -4,23 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src="https://kit.fontawesome.com/0a54d43dc5.js" crossorigin="anonymous"></script>
+  <script defer src="/javascripts/main.js"></script>
   <title><%=title%></title>
 </head>
 <body>
   <nav>
-    <a href="/">Home</a>
-    <a href="/questions/new">Submit a Question</a>
-    <a href="/questions/about">About</a>
-    <% if (user) { %>
-      <a href="/users/<%=user._id%>">Profile</a>
-      <a href="/auth/logout">Log Out</a>
-    <% } else { %>
-      <a href="/auth/google">Login with Google</a>
-    <% } %>
-    <% if (user && user.isAdmin) { %>
-      <a href="/questions/admin/1">Admin Home</a>
-    <% } %> 
+    <div id="nav-box">
+      <a href="/">Home</a>
+      <a href="/questions/new">Submit a Question</a>
+      <a href="/questions/about">About</a>
+      <% if (user) { %>
+        <a href="/users/<%=user._id%>">Profile</a>
+        <a href="/auth/logout">Log Out</a>
+      <% } else { %>
+        <a href="/auth/google">Login with Google</a>
+      <% } %>
+      <% if (user && user.isAdmin) { %>
+        <a href="/questions/admin/1">Admin Home</a>
+      <% } %> 
+      <div id="hidey">Menu</div>
+    </div>
   </nav>
+  
   <main>
