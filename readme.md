@@ -29,6 +29,7 @@ The idea is that behind the scenes users with admin privileges will be taking a
 - Passport
 - Google OAuth 2.0
 - HTML/CSS/JavaScript
+- Font Awesome
 - Fonts:
   - Lato by Łukasz Dziedzic
   - Arvo by Anton Koovit
