@@ -23,6 +23,7 @@
   </div> 
 </div>
 <br>
+<br>
 <% if (question.answers.length) { %>
   <% const answersSorted = question.answers.sort((a, b) => a.index - b.index) %>
   <% answersSorted.forEach(a => { %>
@@ -41,6 +42,7 @@
         <p><%= a.content %> </p>
       </div> 
     </div>
+    <br>
   <% }) %>
 <% } %>
 

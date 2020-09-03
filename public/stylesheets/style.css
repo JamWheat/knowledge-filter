@@ -13,14 +13,14 @@ html {
 body {
   font-family: 'Lato', sans-serif;
   margin: 0;
-  min-height: 100vh;
+  height: 100vh;
   font-size: 18px;
   display: grid;
   grid-template-rows: 50px 1fr;
   grid-template-areas: 
     "nav"
     "main";
-  color: #091822;
+  color: #1F1A38;
   --border-color: #1F1A38;
   --light-color: #f0eae7;
   --color: #091822;
@@ -62,26 +62,28 @@ body > nav {
 }
 
 #nav-box a {
-  color: var(--light-color)
+  color: var(--light-color);
 }
 
 #hidey{
   margin: 15px;
   display: none;
   font-weight: bold;
-  color: var(--light-color)
+  color: var(--light-color);
 }
 
 body > main {
-  background: linear-gradient(90deg, #bdb0aa, #DBCDC6 20%, #DBCDC6 80%, #bdb0aa);
+  background: linear-gradient(90deg, #beb4ae, #ece1db 20%, #ece1db 80%, #beb4ae);
   background-color: var(--bg3);
-
   padding: 0 20px 20px 20px;
   grid-area: main;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: auto;
+}
+
+main {
+  overflow: auto;
 }
 
 .title{
@@ -104,6 +106,7 @@ input.button{
   padding: 8px;
   color: var(--light-color);
   background-color: var(--bg1);
+  filter: drop-shadow(0px 4px 5px #918d9c);
 }
 
 input.button:hover{
@@ -140,12 +143,12 @@ a:hover{
 
 .list{
   width: 600px;
-  border-style: solid;
+  /* border-style: solid;
   border-width: 6px;
-  border-color: var(--border-color);
+  border-color: var(--border-color); */
   display: grid;
   grid-template-rows: 1fr;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   filter: drop-shadow(0px 4px 5px #918d9c);
 }
 
@@ -175,12 +178,20 @@ a:hover{
   background-color: var(--bg4);
 }
 
+.list div:first-child{
+  border-radius: 10px 10px;
+}
+
+.list div:last-child{
+  border-radius: 0 0 10px 10px;
+}
+
 .thread-card {
   width: 600px;
-  border-style: solid;
-  border-width: 6px;
+  /* border-style: solid; */
+  /* border-width: 4px;
   border-color: var(--border-color);
-  border-radius: 5px;
+  border-radius: 4px; */
   display: grid;
   grid-template-columns: 165px auto;
   grid-template-rows: 40px auto;
@@ -204,27 +215,31 @@ a:hover{
 }
 
 .icon-area{
+  border-radius: 10px 0 0 10px;
   grid-row: 1 / 3;
   background-color: var(--bg1);
+  padding: 5px;
 }
 
 .icon {
-  border-style: solid;
-  border-width: 6px;
-  border-color: var(--border-color);
+  /* border-style: solid;
+  border-width: 3px;
+  border-color: var(--bg2); */
   margin: 5px;
   border-radius: 100px;
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
 }
 
 .name{
   background-color: var(--bg2);
+  border-radius: 0 10px 0 0;
 }
 
 .content{
   padding: 2px;
   background-color: var(--bg4);
+  border-radius: 0 0 10px 0;
 }
 
 h3, h2, p{
@@ -238,6 +253,7 @@ h3, h2, p{
   padding: 8px 12px 8px 8px;
   color: var(--light-color);
   background-color: var(--bg1);
+  filter: drop-shadow(0px 4px 5px #918d9c);
 }
 
 .button-style:hover{
@@ -298,18 +314,18 @@ h3, h2, p{
 
   .list{
     width: 100%;
-    border-style: solid;
   }
 
   .thread-card {
     width: 100%;
-    grid-template-columns: 130px auto;
-    grid-template-rows: 130px auto;
+    grid-template-columns: 140px auto;
+    grid-template-rows: 140px auto;
   }
   
   .icon-area{
     display: flex;
     justify-content: center;
+    border-radius: 10px 0 0 0;
   }
 
   .name{
@@ -324,6 +340,7 @@ h3, h2, p{
   .content{
     grid-column: 1/3;
     font-size: 1.1em;
+    border-radius: 0 0 10px 10px;
   }
 
   h1 {
