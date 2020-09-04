@@ -90,6 +90,11 @@ main {
   font-family: 'Arvo', serif;
 }
 
+.bigger{
+  margin: 20px 0 0px 0;
+  font-size: 2.75em;
+}
+
 input, textarea, select{
   border-style: solid;
   border-color: var(--border-color);
