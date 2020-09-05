@@ -50,6 +50,8 @@ Planned Future Improvements:
 - Admin ability to edit user profiles
 - Admit ability to flag Questions in the back end for later consideration
 
+[Trello Board](https://trello.com/b/u310vIDE/the-knowledge-filter)
+
 
 ### Concept Wireframes and ERD
 
